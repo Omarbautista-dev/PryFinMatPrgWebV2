@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #cfd3d6;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTENEDOR GENERAL */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* CARD PRINCIPAL */
+.usuarios-box {
+    background: #e6e7e8;
+    width: 750px;
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* TITULO */
+h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    font-size: 48px;
+}
+
+/* FORM */
+.form-contenido {
+    display: flex;
+    gap: 30px;
+}
+
+/* INPUTS */
+.inputs {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 15px;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* INPUTS Y SELECT */
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #b5b5b5;
+    border-radius: 10px;
+
+    outline: none;
+
+    background: white;
+
+    transition:
+        border 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* FOCUS */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: black;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* CHECKBOX */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.checkbox-group label {
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+/* BOTONES */
+.botones-usuarios {
+    width: 180px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ESTILO BASE */
+.btn {
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 14px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+/* EFECTO */
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* BOTON NEGRO */
+.primary {
+    background: black;
+    color: white;
+}
+
+.primary:hover {
+    background: #333;
+}
+
+/* BOTON GRIS */
+.secondary {
+    background: #bdbdbd;
+    color: black;
+}
+
+.secondary:hover {
+    background: #9f9f9f;
+}
+
+/* BOTON ROJO */
+.danger {
+    background: #d9534f;
+    color: white;
+}
+
+.danger:hover {
+    background: #b52b27;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .usuarios-box {
+        width: 95%;
+    }
+
+    .form-contenido {
+        flex-direction: column;
+    }
+
+    .botones-usuarios {
+        width: 100%;
+    }
+}

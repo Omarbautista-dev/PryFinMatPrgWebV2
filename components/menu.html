@@ -1,0 +1,46 @@
+<!-- BOTON FLOTANTE -->
+<button class="floating-toggle" id="toggle-btn">☰</button>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h2>Cancino Bike</h2>
+    </div>
+
+    <ul class="menu">
+        <li>
+            <a href="dashboard.html">📊 Dashboard</a>
+        </li>
+
+        <li class="submenu-item">
+            <div class="submenu-toggle">
+                📁 Catálogos
+                <span>▾</span>
+            </div>
+
+            <ul class="submenu">
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Marcas</a></li>
+                <li><a href="#">Proveedores</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="cmbPwd.html">🔑 Cambio de Password</a>
+        </li>
+
+        <li>
+            <a href="dtPerson.html">👤 Mt. Datos Personales</a>
+        </li>
+
+        <li>
+            <a href="usuarios.html">👤 Mt. De Usuarios</a>
+        </li>
+
+        <li>
+            <a onclick="logout()">🚪 Cerrar sesión</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="overlay" id="overlay"></div>

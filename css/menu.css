@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar {
+    position: fixed;
+
+    top: 0;
+    left: -280px;
+
+    width: 280px;
+    height: 100vh;
+
+    background: #172033;
+
+    transition: left 0.3s ease;
+
+    overflow-y: auto;
+
+    z-index: 9999;
+
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* ===== HEADER ===== */
+
+.sidebar-header {
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* ===== BOTON ===== */
+
+.toggle-btn {
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2d3a53;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.toggle-btn:hover {
+    background: #3d4c6a;
+}
+
+/* ===== MENU ===== */
+
+.menu {
+    list-style: none;
+
+    padding: 10px;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+/* LINKS */
+
+.menu a,
+.submenu-toggle {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.menu a:hover,
+.submenu-toggle:hover {
+    background: #24314d;
+}
+
+/* ===== SUBMENU ===== */
+
+.submenu {
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition: max-height 0.3s ease;
+
+    list-style: none;
+
+    margin-left: 10px;
+}
+
+.submenu.active {
+    max-height: 300px;
+}
+
+.submenu li a {
+    font-size: 14px;
+
+    background: #1f2a40;
+}
+
+/* ===== OVERLAY ===== */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    z-index: 9990;
+}
+
+.overlay.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+/* ===== SCROLLBAR ===== */
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #4b5b7d;
+
+    border-radius: 10px;
+}
+
+/* ===== BOTON FLOTANTE ===== */
+
+.floating-toggle {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #172033;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    z-index: 10000;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s;
+}
+
+.floating-toggle:hover {
+    background: #24314d;
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Login</title>
+        <link rel="stylesheet" href="css/login.css" />
+    </head>
+
+    <body>
+        <div class="login-container">
+            <div class="login-box">
+                <h1>Cancino Bike</h1>
+                <p class="subtitle">
+                    Innovación, calidad y confianza en cada pieza
+                </p>
+
+                <div id="alertaTop" class="alerta">
+                    <span id="mensajeAlerta"></span>
+                    <button id="btnAceptar">Aceptar</button>
+                </div>
+                <form id="formLogin">
+                    <label>Usuario:</label>
+                    <input
+                        type="text"
+                        id="usuario"
+                        placeholder="Ingrese usuario"
+                        required
+                    />
+                    <small class="error-msg" id="errorUsuario"></small>
+
+                    <label>Contraseña:</label>
+                    <div class="password-container">
+                        <input
+                            type="password"
+                            id="password_input"
+                            placeholder="Ingrese contraseña"
+                            required
+                        />
+                        <span id="togglePassword">👁️</span>
+                    </div>
+                    <small class="error-msg" id="errorPassword"></small>
+
+                    <div class="botones-login">
+                        <button type="submit" class="btn primary">
+                            Iniciar Sesión
+                        </button>
+                        <button type="reset" class="btn secondary">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="js/login.js"></script>
+    </body>
+</html>

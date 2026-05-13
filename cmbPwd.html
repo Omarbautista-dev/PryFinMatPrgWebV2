@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cambio de Password</title>
+        <link rel="stylesheet" href="css/menu.css" />
+        <link rel="stylesheet" href="css/cmbPwd.css" />
+    </head>
+    <body>
+        <div id="menu-container"></div>
+        <div id="container" class="container">
+            <div class="CmbPssw_box">
+                <h1>Cambio de Contraseña</h1>
+                <!-- ALERTA GENERAL -->
+                <div id="alertaTop" class="alerta">
+                    <span id="mensajeAlerta"></span>
+                    <button type="button" id="btnAceptar">Aceptar</button>
+                </div>
+                <form id="formCmbPssw">
+                    <!-- PASSWORD ANTERIOR -->
+                    <label>Contraseña actual:</label>
+                    <div class="input-container">
+                        <input type="password" name="pssw_ant" id="pssw_ant" />
+                        <span class="togglePassword">👁️</span>
+                    </div>
+                    <small class="error-msg" id="errorAnt"></small>
+
+                    <!-- PASSWORD NUEVO -->
+                    <label>Contraseña nueva:</label>
+                    <div class="input-container">
+                        <input type="password" name="pssw_new" id="pssw_new" />
+                        <span class="togglePassword">👁️</span>
+                    </div>
+                    <small class="error-msg" id="errorNew"></small>
+
+                    <!-- CONFIRMAR -->
+                    <label>Confirme contraseña:</label>
+                    <div class="input-container">
+                        <input
+                            type="password"
+                            name="pssw_confirm"
+                            id="pssw_confirm"
+                        />
+                        <span class="togglePassword">👁️</span>
+                    </div>
+                    <small class="error-msg" id="errorConfirm"></small>
+
+                    <div class="botones">
+                        <button type="submit" class="btn primary" disabled>
+                            Aceptar
+                        </button>
+                        <button type="reset" class="btn secondary">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="/js/auth.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/cmbPwd.js"></script>
+        <script>
+            verificarSesion();
+        </script>
+    </body>
+</html>
