@@ -21,7 +21,6 @@ function cargarNombres() {
 
       optionDefault.value = "";
       optionDefault.textContent = "Seleccione NOMBRE";
-      optionDefault.disabled = true;
       optionDefault.selected = true;
 
       select.appendChild(optionDefault);

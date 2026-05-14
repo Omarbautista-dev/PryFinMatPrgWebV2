@@ -41,6 +41,10 @@
 
             <!-- CONTENIDO -->
             <section class="content-grid">
+                <div id="alertaTop" class="alerta">
+                    <span id="mensajeAlerta"></span>
+                    <button type="button" id="btnAceptar">Aceptar</button>
+                </div>
                 <!-- FORMULARIO -->
                 <div class="form-card">
                     <div class="card-header">
@@ -57,6 +61,7 @@
                             <select id="cNombre">
                                 <option value="">Seleccione una persona</option>
                             </select>
+                            <small class="error-msg" id="errorPersona"></small>
                         </div>
 
                         <!-- LOGIN -->
@@ -69,6 +74,7 @@
                                 maxlength="11"
                                 placeholder="Ingrese login"
                             />
+                            <small class="error-msg" id="errorLogin"></small>
                         </div>
 
                         <!-- PASSWORD -->
@@ -82,6 +88,10 @@
                                     maxlength="16"
                                     placeholder="Ingrese contraseña"
                                 />
+                                <small
+                                    class="error-msg"
+                                    id="errorPassword"
+                                ></small>
 
                                 <span class="togglePassword">👁</span>
                             </div>
@@ -92,6 +102,7 @@
                             <label>Fecha Inicio</label>
 
                             <input type="date" id="fecini" />
+                            <small class="error-msg" id="errorFecIni"></small>
                         </div>
 
                         <!-- FECHA FIN -->
@@ -99,6 +110,7 @@
                             <label>Fecha Fin</label>
 
                             <input type="date" id="fecfin" />
+                            <small class="error-msg" id="errorFecFin"></small>
                         </div>
 
                         <!-- CHECKBOX -->
