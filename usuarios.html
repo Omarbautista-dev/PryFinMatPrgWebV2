@@ -2,8 +2,16 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Mantenimiento de Usuarios</title>
+
+        <title>Cancino Bike | Usuarios</title>
+
+        <!-- FUENTE -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
 
         <link rel="stylesheet" href="css/menu.css" />
         <link rel="stylesheet" href="css/usuarios.css" />
@@ -13,77 +21,173 @@
         <!-- MENU -->
         <div id="menu-container"></div>
 
-        <div class="container">
-            <div class="usuarios-box">
-                <h1>Usuarios</h1>
+        <!-- MAIN -->
+        <main class="main-content">
+            <!-- HERO -->
+            <section class="hero-section">
+                <div class="hero-overlay"></div>
 
-                <form action="#" method="post">
-                    <div class="form-contenido">
-                        <!-- INPUTS -->
-                        <div class="inputs">
-                            <label>Nombre de usuario:</label>
+                <div class="hero-content">
+                    <span class="badge"> Administración del Sistema </span>
 
-                            <select
-                                id="cNombre"
-                                name="name-user"
-                                required
-                            ></select>
+                    <h1>Mantenimiento de Usuarios</h1>
 
-                            <label>Login de usuario:</label>
-                            <input type="text" name="name-login" required />
+                    <p>
+                        Gestiona accesos, permisos y cuentas de usuarios del
+                        sistema administrativo de Cancino Bike.
+                    </p>
+                </div>
+            </section>
 
-                            <label>Contraseña del usuario:</label>
-                            <input type="password" name="password" required />
+            <!-- CONTENIDO -->
+            <section class="content-grid">
+                <!-- FORMULARIO -->
+                <div class="form-card">
+                    <div class="card-header">
+                        <h2>Registro de Usuario</h2>
 
-                            <label>Fecha de Inicio</label>
-                            <input type="date" name="FecIni" required />
+                        <p>Complete la información requerida</p>
+                    </div>
 
-                            <label>Fecha de Termino</label>
-                            <input type="date" name="FecFin" required />
+                    <form id="frmUsuarios">
+                        <!-- PERSONA -->
+                        <div class="form-group">
+                            <label>Persona</label>
 
-                            <div class="checkbox-group">
-                                <label>Estado de cuenta</label>
-                                <input type="checkbox" />
+                            <select id="cNombre">
+                                <option value="">Seleccione una persona</option>
+                            </select>
+                        </div>
+
+                        <!-- LOGIN -->
+                        <div class="form-group">
+                            <label>Login</label>
+
+                            <input
+                                type="text"
+                                id="login"
+                                maxlength="11"
+                                placeholder="Ingrese login"
+                            />
+                        </div>
+
+                        <!-- PASSWORD -->
+                        <div class="form-group">
+                            <label>Password</label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                maxlength="16"
+                                placeholder="Ingrese contraseña"
+                            />
+                        </div>
+
+                        <!-- FECHA INICIO -->
+                        <div class="form-group">
+                            <label>Fecha Inicio</label>
+
+                            <input type="date" id="fecini" />
+                        </div>
+
+                        <!-- FECHA FIN -->
+                        <div class="form-group">
+                            <label>Fecha Fin</label>
+
+                            <input type="date" id="fecfin" />
+                        </div>
+
+                        <!-- CHECKBOX -->
+                        <div class="form-group full-width">
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="edocta" checked />
+
+                                <label for="edocta"> Cuenta Activa </label>
                             </div>
                         </div>
 
                         <!-- BOTONES -->
-                        <div class="botones-usuarios">
-                            <button type="submit" class="btn primary">
-                                Nuevo
+                        <div class="botones">
+                            <button type="button" id="btnNuevo">Nuevo</button>
+
+                            <button type="button" id="btnGuardar">
+                                Guardar
                             </button>
 
-                            <button type="button" class="btn secondary">
-                                Borrar
-                            </button>
-
-                            <button type="submit" class="btn primary">
+                            <button type="button" id="btnModificar">
                                 Modificar
                             </button>
 
-                            <button type="reset" class="btn secondary">
+                            <button type="button" id="btnEliminar">
+                                Eliminar
+                            </button>
+
+                            <button type="button" id="btnCancelar">
                                 Cancelar
                             </button>
-
-                            <button type="submit" class="btn primary">
-                                Consultar
-                            </button>
-
-                            <button type="button" class="btn danger">
-                                Salir
-                            </button>
                         </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+                    </form>
+                </div>
 
-        <script src="js/auth.js"></script>
+                <!-- PANEL DERECHO -->
+                <div class="info-card">
+                    <div class="info-box">
+                        <span>👥</span>
+                        <h3>Gestión de Usuarios</h3>
+
+                        <p>
+                            Administra cuentas de acceso y control de personal.
+                        </p>
+                    </div>
+
+                    <div class="info-box">
+                        <span>🔐</span>
+                        <h3>Seguridad</h3>
+
+                        <p>Controla permisos y accesos dentro del sistema.</p>
+                    </div>
+
+                    <div class="info-box">
+                        <span>🚴</span>
+                        <h3>Cancino Bike</h3>
+
+                        <p>
+                            Plataforma administrativa para refaccionaria y
+                            bicicletas.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TABLA -->
+            <section class="table-section">
+                <div class="table-header">
+                    <h2>Usuarios Registrados</h2>
+
+                    <p>Consulta y administración de usuarios activos</p>
+                </div>
+
+                <div class="table-container">
+                    <table id="tblUsuarios">
+                        <thead>
+                            <tr>
+                                <th>Persona</th>
+                                <th>Puesto</th>
+                                <th>Login</th>
+                                <th>Fec. Inicio</th>
+                                <th>Fec. Fin</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
         <script src="js/menu.js"></script>
-        <script src="js/dashboard.js"></script>
         <script src="js/cNombreCompleto.js"></script>
-        <script>
-            verificarSesion();
-        </script>
+        <script src="js/usuarios.js"></script>
     </body>
 </html>
