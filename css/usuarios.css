@@ -1,188 +1,357 @@
+/* =========================
+   RESET
+========================= */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+}
+
+:root {
+    --bg: #f4f7fb;
+    --card: rgba(255, 255, 255, 0.85);
+    --border: rgba(255, 255, 255, 0.35);
+
+    --text: #111827;
+    --text-soft: #6b7280;
+
+    --primary: #111827;
+    --primary-hover: #1f2937;
+
+    --success: #10b981;
+    --success-hover: #059669;
+
+    --info: #3b82f6;
+    --info-hover: #2563eb;
+
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+
+    --gray: #6b7280;
+    --gray-hover: #4b5563;
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    --radius: 22px;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    background: #cfd3d6;
+    font-family: "Inter", "Segoe UI", sans-serif;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 40%, #ecfeff 100%);
+
+    min-height: 100vh;
+
+    padding: 40px 20px;
+
+    color: var(--text);
 }
 
-/* CONTENEDOR GENERAL */
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
 .container {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    max-width: 1200px;
+
+    margin: auto;
+
+    background: var(--card);
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 40px;
+
+    box-shadow: var(--shadow);
 }
 
-/* CARD PRINCIPAL */
-.usuarios-box {
-    background: #e6e7e8;
-    width: 750px;
-
-    padding: 35px;
-
-    border-radius: 18px;
-
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* TITULO */
+/* =========================
+   HEADER
+========================= */
 h1 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 30px;
+    font-size: 2.4rem;
+    font-weight: 800;
 
-    font-size: 48px;
+    margin-bottom: 8px;
+
+    letter-spacing: -1px;
 }
 
-/* FORM */
-.form-contenido {
+h1::after {
+    content: "";
+
+    display: block;
+
+    width: 80px;
+    height: 4px;
+
+    margin-top: 12px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(90deg, #111827, #3b82f6);
+}
+
+/* =========================
+   FORM CARD
+========================= */
+#frmUsuarios {
+    margin-top: 35px;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 24px;
+}
+
+/* =========================
+   CAMPOS
+========================= */
+.form-group {
     display: flex;
-    gap: 30px;
-}
-
-/* INPUTS */
-.inputs {
-    flex: 1;
+    flex-direction: column;
 }
 
 label {
-    display: block;
-    margin-bottom: 8px;
-    margin-top: 15px;
+    margin-bottom: 10px;
 
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 600;
+
+    color: var(--text-soft);
 }
 
-/* INPUTS Y SELECT */
 input[type="text"],
 input[type="password"],
 input[type="date"],
 select {
     width: 100%;
 
-    padding: 12px;
+    padding: 15px 16px;
 
-    border: 1px solid #b5b5b5;
-    border-radius: 10px;
+    border-radius: 14px;
 
-    outline: none;
+    border: 1px solid #dbe3ec;
 
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
 
-    transition:
-        border 0.2s ease,
-        box-shadow 0.2s ease;
+    font-size: 15px;
+
+    transition: 0.25s ease;
 }
 
 /* FOCUS */
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="date"]:focus,
+input:focus,
 select:focus {
-    border-color: black;
+    outline: none;
 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-color: #3b82f6;
+
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+
+    transform: translateY(-1px);
 }
 
-/* CHECKBOX */
-.checkbox-group {
+/* =========================
+   CHECKBOX
+========================= */
+.checkbox-container {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-.checkbox-group label {
-    margin: 0;
-}
-
-input[type="checkbox"] {
+#edocta {
     width: 18px;
     height: 18px;
+
+    accent-color: #111827;
+
+    cursor: pointer;
 }
 
-/* BOTONES */
-.botones-usuarios {
-    width: 180px;
+/* =========================
+   BOTONES
+========================= */
+.botones {
+    grid-column: 1 / -1;
 
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-top: 10px;
 }
 
-/* ESTILO BASE */
-.btn {
-    padding: 14px;
+.botones button {
+    flex: 1;
+
+    min-width: 160px;
 
     border: none;
-    border-radius: 10px;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    font-size: 14px;
+    font-weight: 700;
 
     cursor: pointer;
 
-    font-weight: bold;
-    font-size: 14px;
-
     transition:
         transform 0.2s ease,
+        box-shadow 0.2s ease,
         background 0.2s ease;
-}
 
-/* EFECTO */
-.btn:hover {
-    transform: translateY(-2px);
-}
-
-/* BOTON NEGRO */
-.primary {
-    background: black;
     color: white;
 }
 
-.primary:hover {
-    background: #333;
+.botones button:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* BOTON GRIS */
-.secondary {
-    background: #bdbdbd;
-    color: black;
+/* BOTONES INDIVIDUALES */
+#btnNuevo {
+    background: var(--primary);
 }
 
-.secondary:hover {
-    background: #9f9f9f;
+#btnNuevo:hover {
+    background: var(--primary-hover);
 }
 
-/* BOTON ROJO */
-.danger {
-    background: #d9534f;
+#btnGuardar {
+    background: var(--success);
+}
+
+#btnGuardar:hover {
+    background: var(--success-hover);
+}
+
+#btnModificar {
+    background: var(--info);
+}
+
+#btnModificar:hover {
+    background: var(--info-hover);
+}
+
+#btnEliminar {
+    background: var(--danger);
+}
+
+#btnEliminar:hover {
+    background: var(--danger-hover);
+}
+
+#btnCancelar {
+    background: var(--gray);
+}
+
+#btnCancelar:hover {
+    background: var(--gray-hover);
+}
+
+/* =========================
+   TABLA
+========================= */
+#tblUsuarios {
+    width: 100%;
+
+    margin-top: 40px;
+
+    border-collapse: collapse;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* HEADER */
+#tblUsuarios thead {
+    background: linear-gradient(90deg, #111827, #1e293b);
+
     color: white;
 }
 
-.danger:hover {
-    background: #b52b27;
+#tblUsuarios th {
+    padding: 18px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
 }
 
-/* RESPONSIVE */
+/* CELDAS */
+#tblUsuarios td {
+    padding: 16px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #edf2f7;
+}
+
+/* HOVER */
+#tblUsuarios tbody tr {
+    transition: 0.2s ease;
+}
+
+#tblUsuarios tbody tr:hover {
+    background: #f8fafc;
+
+    transform: scale(1.002);
+}
+
+/* FILAS PARES */
+#tblUsuarios tbody tr:nth-child(even) {
+    background: #fcfcfd;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
-    .usuarios-box {
-        width: 95%;
+    body {
+        padding: 20px;
     }
 
-    .form-contenido {
+    .container {
+        padding: 24px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .botones {
         flex-direction: column;
     }
 
-    .botones-usuarios {
+    .botones button {
         width: 100%;
+    }
+
+    #tblUsuarios {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }

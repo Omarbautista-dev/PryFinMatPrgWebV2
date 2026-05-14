@@ -2,53 +2,103 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cancino Bike | Login</title>
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
         <link rel="stylesheet" href="css/login.css" />
     </head>
 
     <body>
+        <div class="background-overlay"></div>
+
         <div class="login-container">
-            <div class="login-box">
-                <h1>Cancino Bike</h1>
-                <p class="subtitle">
-                    Innovación, calidad y confianza en cada pieza
-                </p>
+            <!-- PANEL IZQUIERDO -->
+            <div class="brand-side">
+                <div class="brand-content">
+                    <h1>Cancino Bike</h1>
 
-                <div id="alertaTop" class="alerta">
-                    <span id="mensajeAlerta"></span>
-                    <button id="btnAceptar">Aceptar</button>
+                    <div class="line"></div>
+
+                    <p class="brand-text">
+                        Refacciones, bicicletas y accesorios de alto rendimiento
+                        para ciclistas urbanos, de montaña y ruta.
+                    </p>
+
+                    <div class="features">
+                        <div class="feature-card">
+                            <span>⚙️</span>
+                            <p>Refacciones Premium</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <span>🚴</span>
+                            <p>Bicicletas Profesionales</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <span>🛠️</span>
+                            <p>Servicio Técnico</p>
+                        </div>
+                    </div>
                 </div>
-                <form id="formLogin">
-                    <label>Usuario:</label>
-                    <input
-                        type="text"
-                        id="usuario"
-                        placeholder="Ingrese usuario"
-                        required
-                    />
-                    <small class="error-msg" id="errorUsuario"></small>
+            </div>
 
-                    <label>Contraseña:</label>
-                    <div class="password-container">
+            <!-- LOGIN -->
+            <div class="login-side">
+                <div class="login-box">
+                    <h2>Bienvenido</h2>
+
+                    <p class="subtitle">
+                        Inicia sesión para acceder al sistema
+                    </p>
+
+                    <div id="alertaTop" class="alerta">
+                        <span id="mensajeAlerta"></span>
+                        <button id="btnAceptar">Aceptar</button>
+                    </div>
+
+                    <form id="formLogin">
+                        <label>Usuario</label>
                         <input
-                            type="password"
-                            id="password_input"
-                            placeholder="Ingrese contraseña"
+                            type="text"
+                            id="usuario"
+                            placeholder="Ingrese usuario"
                             required
                         />
-                        <span id="togglePassword">👁️</span>
-                    </div>
-                    <small class="error-msg" id="errorPassword"></small>
+                        <small class="error-msg" id="errorUsuario"></small>
 
-                    <div class="botones-login">
-                        <button type="submit" class="btn primary">
-                            Iniciar Sesión
-                        </button>
-                        <button type="reset" class="btn secondary">
-                            Cancelar
-                        </button>
-                    </div>
-                </form>
+                        <label>Contraseña</label>
+
+                        <div class="password-container">
+                            <input
+                                type="password"
+                                id="password_input"
+                                placeholder="Ingrese contraseña"
+                                required
+                            />
+
+                            <span id="togglePassword">👁</span>
+                        </div>
+
+                        <small class="error-msg" id="errorPassword"></small>
+
+                        <div class="botones-login">
+                            <button type="submit" class="btn primary">
+                                Iniciar Sesión
+                            </button>
+
+                            <button type="reset" class="btn secondary">
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
