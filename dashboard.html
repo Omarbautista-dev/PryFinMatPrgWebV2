@@ -1,26 +1,86 @@
 <!doctype html>
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Dashboard</title>
+        <title>Cancino Bike | Dashboard</title>
+
+        <!-- FUENTE -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
         <link rel="stylesheet" href="css/menu.css" />
         <link rel="stylesheet" href="css/dashboard.css" />
     </head>
 
     <body>
-        <!-- CONTENEDOR DEL MENU -->
+        <!-- CONTENEDOR MENU -->
         <div id="menu-container"></div>
 
-        <!-- CONTENIDO -->
+        <!-- DASHBOARD -->
         <main class="main-content">
-            <div class="welcome-box">
-                <h1 id="bienvenida">Bienvenido</h1>
-                <h2 id="rolUsuario"></h2>
-                <p>Sistema Integral de la Refaccionaria Cancino Bike.</p>
-            </div>
+            <!-- HERO -->
+            <section class="hero-section">
+                <div class="hero-overlay"></div>
+
+                <div class="hero-content">
+                    <span class="badge">Sistema Administrativo</span>
+
+                    <h1 id="bienvenida">Bienvenido</h1>
+
+                    <h2 id="rolUsuario"></h2>
+
+                    <p>
+                        Gestiona inventario, ventas, refacciones y bicicletas
+                        desde una sola plataforma moderna y eficiente.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Ver Inventario</button>
+
+                        <button class="btn-secondary">Gestionar Ventas</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TARJETAS -->
+            <section class="cards-section">
+                <div class="dashboard-card">
+                    <div class="icon">⚙️</div>
+
+                    <h3>Refacciones</h3>
+
+                    <p>Control completo de piezas, accesorios y componentes.</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="icon">🚴</div>
+
+                    <h3>Bicicletas</h3>
+
+                    <p>Administración de bicicletas urbanas, MTB y ruta.</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="icon">📦</div>
+
+                    <h3>Inventario</h3>
+
+                    <p>Consulta existencias, movimientos y productos.</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="icon">🛠️</div>
+
+                    <h3>Taller</h3>
+
+                    <p>Seguimiento de servicios y mantenimiento técnico.</p>
+                </div>
+            </section>
         </main>
 
         <script src="/js/auth.js"></script>
