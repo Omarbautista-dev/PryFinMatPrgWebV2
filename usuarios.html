@@ -75,12 +75,16 @@
                         <div class="form-group">
                             <label>Password</label>
 
-                            <input
-                                type="password"
-                                id="password"
-                                maxlength="16"
-                                placeholder="Ingrese contraseña"
-                            />
+                            <div class="input-container">
+                                <input
+                                    type="password"
+                                    id="password"
+                                    maxlength="16"
+                                    placeholder="Ingrese contraseña"
+                                />
+
+                                <span class="togglePassword">👁</span>
+                            </div>
                         </div>
 
                         <!-- FECHA INICIO -->
@@ -172,6 +176,7 @@
                         <thead>
                             <tr>
                                 <th>Persona</th>
+                                <th>Tipo Persona</th>
                                 <th>Puesto</th>
                                 <th>Login</th>
                                 <th>Fec. Inicio</th>

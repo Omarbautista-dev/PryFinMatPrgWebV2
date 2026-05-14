@@ -185,6 +185,58 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.15);
 }
 
+/* PASSWORD */
+.input-container {
+    position: relative;
+
+    width: 100%;
+}
+
+.input-container input {
+    width: 100%;
+
+    padding: 15px;
+    padding-right: 50px;
+
+    border-radius: 14px;
+
+    border: 1px solid #2f3338;
+
+    background: #1f242c;
+
+    color: white;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+.input-container input:focus {
+    border-color: #ff7a00;
+
+    box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.15);
+}
+
+/* OJO PASSWORD */
+.togglePassword {
+    position: absolute;
+
+    right: 16px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    color: #9ca3af;
+
+    transition: 0.2s ease;
+}
+
+.togglePassword:hover {
+    color: #ff7a00;
+}
+
 /* CHECKBOX */
 .checkbox-container {
     display: flex;
