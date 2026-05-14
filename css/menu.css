@@ -1,21 +1,25 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ===== SIDEBAR ===== */
-
+/* SIDEBAR */
 .sidebar {
     position: fixed;
 
     top: 0;
-    left: -280px;
+    left: -320px;
 
-    width: 280px;
+    width: 320px;
     height: 100vh;
 
-    background: #172033;
+    padding-top: 90px;
+
+    background: #11151b;
+
+    border-right: 1px solid #252932;
 
     transition: left 0.3s ease;
 
@@ -23,64 +27,123 @@
 
     z-index: 9999;
 
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.35);
 }
 
 .sidebar.active {
     left: 0;
 }
 
-/* ===== HEADER ===== */
-
+/* HEADER */
 .sidebar-header {
-    height: 80px;
+    padding: 30px 24px 20px;
+
+    border-bottom: 1px solid #252932;
+}
+
+/* BRAND */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 18px;
 
     display: flex;
-
     align-items: center;
+    justify-content: center;
 
-    padding: 20px;
+    font-size: 1.7rem;
+
+    background: linear-gradient(135deg, #ff7a00, #ff5500);
+
+    box-shadow: 0 10px 20px rgba(255, 122, 0, 0.25);
 }
 
-/* ===== BOTON ===== */
-
-.toggle-btn {
-    width: 45px;
-    height: 45px;
-
-    border: none;
-
-    border-radius: 12px;
-
-    background: #2d3a53;
-
+.brand-text h2 {
     color: white;
 
-    font-size: 24px;
+    font-size: 1.35rem;
 
-    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
 
-    transition: 0.3s;
+    font-weight: 700;
 }
 
-.toggle-btn:hover {
-    background: #3d4c6a;
+.brand-text span {
+    color: #9ca3af;
+
+    font-size: 0.8rem;
 }
 
-/* ===== MENU ===== */
+/* PERFIL */
+.profile-card {
+    margin: 22px;
 
+    background: #181c22;
+
+    border: 1px solid #252932;
+
+    border-radius: 22px;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-avatar {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(135deg, #ff7a00, #ff5500);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.5rem;
+}
+
+.profile-info h3 {
+    color: white;
+
+    font-size: 1rem;
+
+    margin-bottom: 4px;
+}
+
+.profile-info p {
+    color: #9ca3af;
+
+    font-size: 0.82rem;
+}
+
+/* MENU */
 .menu {
     list-style: none;
 
-    padding: 10px;
+    padding: 10px 18px;
+
+    flex: 1;
 }
 
 .menu li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 /* LINKS */
-
 .menu a,
 .submenu-toggle {
     display: flex;
@@ -90,9 +153,9 @@
 
     width: 100%;
 
-    padding: 14px 18px;
+    padding: 16px 18px;
 
-    border-radius: 12px;
+    border-radius: 16px;
 
     color: white;
 
@@ -100,16 +163,33 @@
 
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
+
+    background: transparent;
+
+    border: 1px solid transparent;
 }
 
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* HOVER */
 .menu a:hover,
 .submenu-toggle:hover {
-    background: #24314d;
+    background: #1b212a;
+
+    border-color: rgba(255, 122, 0, 0.2);
+
+    transform: translateX(4px);
 }
 
-/* ===== SUBMENU ===== */
-
+/* SUBMENU */
 .submenu {
     max-height: 0;
 
@@ -119,85 +199,159 @@
 
     list-style: none;
 
-    margin-left: 10px;
+    margin-top: 8px;
+
+    padding-left: 10px;
 }
 
 .submenu.active {
     max-height: 300px;
 }
 
-.submenu li a {
-    font-size: 14px;
-
-    background: #1f2a40;
+.submenu li {
+    margin-bottom: 8px;
 }
 
-/* ===== OVERLAY ===== */
+.submenu li a {
+    background: #181c22;
 
+    border: 1px solid #252932;
+
+    padding: 14px 16px;
+
+    font-size: 0.88rem;
+
+    color: #d1d5db;
+}
+
+.submenu li a:hover {
+    background: rgba(255, 122, 0, 0.12);
+
+    border-color: rgba(255, 122, 0, 0.25);
+}
+
+/* ARROW */
+.arrow {
+    transition: 0.3s ease;
+}
+
+.submenu-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* LOGOUT */
+.logout-item {
+    margin-top: 20px;
+}
+
+.logout-item a {
+    background: rgba(220, 38, 38, 0.12);
+
+    border: 1px solid rgba(220, 38, 38, 0.2);
+
+    color: #ff7b7b;
+}
+
+.logout-item a:hover {
+    background: rgba(220, 38, 38, 0.2);
+
+    border-color: rgba(220, 38, 38, 0.35);
+}
+
+/* FOOTER */
+.sidebar-footer {
+    padding: 18px;
+
+    border-top: 1px solid #252932;
+
+    text-align: center;
+}
+
+.sidebar-footer p {
+    color: #6b7280;
+
+    font-size: 0.78rem;
+}
+
+/* OVERLAY */
 .overlay {
     position: fixed;
 
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
+
+    backdrop-filter: blur(3px);
 
     opacity: 0;
 
     visibility: hidden;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 
     z-index: 9990;
 }
 
 .overlay.active {
     opacity: 1;
-
     visibility: visible;
 }
 
-/* ===== SCROLLBAR ===== */
-
-.sidebar::-webkit-scrollbar {
-    width: 6px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-    background: #4b5b7d;
-
-    border-radius: 10px;
-}
-
-/* ===== BOTON FLOTANTE ===== */
-
+/* BOTÓN FLOTANTE */
 .floating-toggle {
     position: fixed;
 
     top: 20px;
     left: 20px;
 
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
 
     border: none;
 
-    border-radius: 14px;
+    border-radius: 18px;
 
-    background: #172033;
+    background: linear-gradient(135deg, #ff7a00, #ff5500);
 
     color: white;
 
-    font-size: 24px;
+    font-size: 1.4rem;
 
     cursor: pointer;
 
     z-index: 10000;
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(255, 122, 0, 0.3);
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .floating-toggle:hover {
-    background: #24314d;
+    transform: translateY(-2px) scale(1.03);
+
+    box-shadow: 0 14px 30px rgba(255, 122, 0, 0.4);
+}
+
+/* SCROLL */
+.sidebar::-webkit-scrollbar {
+    width: 7px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #374151;
+
+    border-radius: 999px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 290px;
+        left: -290px;
+    }
+
+    .floating-toggle {
+        width: 52px;
+        height: 52px;
+    }
 }

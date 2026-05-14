@@ -1,46 +1,96 @@
-<!-- BOTON FLOTANTE -->
+<!-- BOTÓN FLOTANTE -->
 <button class="floating-toggle" id="toggle-btn">☰</button>
 
 <!-- SIDEBAR -->
 <nav class="sidebar" id="sidebar">
+    <!-- HEADER -->
     <div class="sidebar-header">
-        <h2>Cancino Bike</h2>
+        <div class="brand">
+            <div class="brand-icon">🚴</div>
+
+            <div class="brand-text">
+                <h2>Cancino Bike</h2>
+                <span>Bike Parts & Service</span>
+            </div>
+        </div>
     </div>
 
+    <!-- PERFIL -->
+    <div class="profile-card">
+        <div class="profile-avatar">👤</div>
+
+        <div class="profile-info">
+            <h3>Administrador</h3>
+            <p>Sistema Administrativo</p>
+        </div>
+    </div>
+
+    <!-- MENÚ -->
     <ul class="menu">
+        <!-- DASHBOARD -->
         <li>
-            <a href="dashboard.html">📊 Dashboard</a>
+            <a href="dashboard.html">
+                <span class="menu-left"> 📊 Dashboard </span>
+            </a>
         </li>
 
+        <!-- CATÁLOGOS -->
         <li class="submenu-item">
             <div class="submenu-toggle">
-                📁 Catálogos
-                <span>▾</span>
+                <span class="menu-left"> 📁 Catálogos </span>
+
+                <span class="arrow">▾</span>
             </div>
 
             <ul class="submenu">
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Marcas</a></li>
-                <li><a href="#">Proveedores</a></li>
+                <li>
+                    <a href="#"> ⚙️ Productos </a>
+                </li>
+
+                <li>
+                    <a href="#"> 🏷️ Marcas </a>
+                </li>
+
+                <li>
+                    <a href="#"> 🚚 Proveedores </a>
+                </li>
             </ul>
         </li>
 
+        <!-- PASSWORD -->
         <li>
-            <a href="cmbPwd.html">🔑 Cambio de Password</a>
+            <a href="cmbPwd.html">
+                <span class="menu-left"> 🔑 Cambio de Password </span>
+            </a>
         </li>
 
+        <!-- DATOS PERSONALES -->
         <li>
-            <a href="dtPerson.html">👤 Mt. Datos Personales</a>
+            <a href="dtPerson.html">
+                <span class="menu-left"> 👤 Datos Personales </span>
+            </a>
         </li>
 
+        <!-- USUARIOS -->
         <li>
-            <a href="usuarios.html">👤 Mt. De Usuarios</a>
+            <a href="usuarios.html">
+                <span class="menu-left"> 👥 Usuarios </span>
+            </a>
         </li>
 
-        <li>
-            <a onclick="logout()">🚪 Cerrar sesión</a>
+        <!-- CERRAR SESIÓN -->
+        <li class="logout-item">
+            <a onclick="logout()">
+                <span class="menu-left"> 🚪 Cerrar Sesión </span>
+            </a>
         </li>
     </ul>
+
+    <!-- FOOTER -->
+    <div class="sidebar-footer">
+        <p>© 2026 Cancino Bike</p>
+    </div>
 </nav>
 
+<!-- OVERLAY -->
 <div class="overlay" id="overlay"></div>
