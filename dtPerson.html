@@ -1,167 +1,233 @@
 <!doctype html>
-
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Gestión de Datos Personales</title>
+
+        <title>Cancino Bike | Datos Personales</title>
+
+        <!-- FUENTE -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
         <link rel="stylesheet" href="css/menu.css" />
         <link rel="stylesheet" href="css/dtPerson.css" />
     </head>
 
     <body>
+        <!-- MENU -->
         <div id="menu-container"></div>
-        <header class="main-header">
-            <div class="header-title">
-                <h1>Gestión de Datos Personales</h1>
-            </div>
-            <div class="header-user">
-                <div class="user-avatar"></div>
-                <span class="user-name">Nombre de Usuario</span>
-                <div class="logos">
-                    <div class="logo-placeholder">Logo 1</div>
-                    <div class="logo-placeholder">Logo 2</div>
-                </div>
-            </div>
-        </header>
-        <main class="dashboard-grid">
-            <section class="card full-width">
-                <h2 class="section-title">Datos Iniciales</h2>
-                <div class="form-grid-3">
-                    <select id="cTpPerson"></select>
 
-                    <input
-                        type="text"
-                        placeholder="CURP"
-                        id="curp"
-                        maxlength="18"
-                        style="text-transform: uppercase"
-                    />
-                    <span id="curpError" style="color: red"></span>
+        <!-- MAIN -->
+        <main class="main-content">
+            <!-- HERO -->
+            <section class="hero-section">
+                <div class="hero-overlay"></div>
 
-                    <input
-                        type="text"
-                        placeholder="RFC"
-                        id="rfc"
-                        maxlength="13"
-                    />
+                <div class="hero-content">
+                    <span class="badge"> Gestión Administrativa </span>
+
+                    <h1>Datos Personales</h1>
+
+                    <p>
+                        Administración de información personal, localización y
+                        perfiles digitales de empleados y usuarios del sistema
+                        Cancino Bike.
+                    </p>
                 </div>
             </section>
 
-            <!-- DATOS PERSONALES -->
-            <section class="card">
-                <h2 class="section-title">Datos Personales</h2>
+            <!-- GRID -->
+            <section class="dashboard-grid">
+                <!-- DATOS INICIALES -->
+                <section class="card full-width">
+                    <div class="card-header">
+                        <h2>Datos Iniciales</h2>
+                    </div>
 
-                <div class="form-grid-2">
-                    <select id="cNombre"></select>
-                    <select id="cApePater"></select>
-                    <select id="cApeMater"></select>
-                    <select id="cGenero"></select>
-                    <select id="cGdoAcad"></select>
-                    <select id="cPuesto"></select>
+                    <div class="form-grid-3">
+                        <select id="cTpPerson"></select>
 
-                    <input
-                        type="date"
-                        id="fechaNacimiento"
-                        class="disabled-input"
-                    />
-                    <input
-                        type="text"
-                        placeholder="Edad"
-                        id="edad"
-                        disabled
-                        class="disabled-input"
-                    />
+                        <div class="input-group">
+                            <input
+                                type="text"
+                                placeholder="CURP"
+                                id="curp"
+                                maxlength="18"
+                                style="text-transform: uppercase"
+                            />
 
-                    <select id="cNacionalidad"></select>
-                    <input type="tel" placeholder="Telefono" />
-                    <input type="email" placeholder="E-Mail" />
-                    <input
-                        type="text"
-                        placeholder="Nombre de la Empresa (opcional)"
-                    />
-                </div>
-            </section>
+                            <span id="curpError"></span>
+                        </div>
 
-            <!-- LOCALIZACIÓN -->
-            <section class="card">
-                <h2 class="section-title">Datos de Localización</h2>
-                <div class="form-grid-2">
-                    <input type="text" placeholder="Número de casa" />
-                    <select id="cCalle"></select>
-                    <select id="cColonia"></select>
-                    <select id="cMunicipio"></select>
-                    <select id="cEstado"></select>
-                    <select id="cPais"></select>
-                    <input type="text" placeholder="Código Postal" />
-                    <input type="text" placeholder="Referencia" />
-                </div>
-            </section>
+                        <input
+                            type="text"
+                            placeholder="RFC"
+                            id="rfc"
+                            maxlength="13"
+                        />
+                    </div>
+                </section>
 
-            <!-- HUELLA DIGITAL -->
-            <section class="card">
-                <h2 class="section-title">Huella Digital</h2>
-                <div class="form-grid-3">
-                    <input type="text" placeholder="Facebook" />
-                    <input type="text" placeholder="Instagram" />
-                    <input type="text" placeholder="TikTok" />
-                    <input type="text" placeholder="LinkedIn" />
-                    <input type="text" placeholder="X (Twitter)" />
-                    <input type="text" placeholder="URL" />
-                    <input type="text" placeholder="WWW" />
-                </div>
-            </section>
+                <!-- DATOS PERSONALES -->
+                <section class="card">
+                    <div class="card-header">
+                        <h2>Datos Personales</h2>
+                    </div>
 
-            <!-- OPCIONES -->
-            <section class="card options-card">
-                <h2 class="section-title">Opciones</h2>
-                <div class="buttons-container">
-                    <button class="btn btn-guardar">Guardar</button>
-                    <button class="btn btn-modificar">Modificar</button>
-                    <button class="btn btn-borrar">Borrar</button>
-                    <button class="btn btn-cancelar">Cancelar</button>
-                    <button class="btn btn-salir">Salir / Regresar</button>
-                </div>
-            </section>
+                    <div class="form-grid-2">
+                        <select id="cNombre"></select>
 
-            <!-- TABLA -->
-            <section class="card full-width">
-                <h2 class="section-title">Registros Existentes</h2>
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>CURP</th>
-                                <th>Fecha</th>
-                                <th>Email</th>
-                                <th>Dirección</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>11</td>
-                                <td>Ejemplo Usuario</td>
-                                <td>XXXX000000XXXXXX</td>
-                                <td>12/12/1975</td>
-                                <td>correo@email.com</td>
-                                <td>Dirección completa</td>
-                                <td class="actions-cell">✏️ ℹ️</td>
-                            </tr>
-                            <tr class="selected-row">
-                                <td>31</td>
-                                <td>Galilea Castillo Arcos</td>
-                                <td>UNOU751212MTCLRD01</td>
-                                <td>12/12/1975</td>
-                                <td>gali_ca@gmail.com</td>
-                                <td>Teopisca, Chiapas</td>
-                                <td class="actions-cell">✏️ ℹ️</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                        <select id="cApePater"></select>
+
+                        <select id="cApeMater"></select>
+
+                        <select id="cGenero"></select>
+
+                        <select id="cGdoAcad"></select>
+
+                        <select id="cPuesto"></select>
+
+                        <input
+                            type="date"
+                            id="fechaNacimiento"
+                            class="disabled-input"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Edad"
+                            id="edad"
+                            disabled
+                            class="disabled-input"
+                        />
+
+                        <select id="cNacionalidad"></select>
+
+                        <input type="tel" placeholder="Teléfono" />
+
+                        <input type="email" placeholder="E-Mail" />
+
+                        <input type="text" placeholder="Nombre de la Empresa" />
+                    </div>
+                </section>
+
+                <!-- LOCALIZACIÓN -->
+                <section class="card">
+                    <div class="card-header">
+                        <h2>Datos de Localización</h2>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <input type="text" placeholder="Número de casa" />
+
+                        <select id="cCalle"></select>
+
+                        <select id="cColonia"></select>
+
+                        <select id="cMunicipio"></select>
+
+                        <select id="cEstado"></select>
+
+                        <select id="cPais"></select>
+
+                        <input type="text" placeholder="Código Postal" />
+
+                        <input type="text" placeholder="Referencia" />
+                    </div>
+                </section>
+
+                <!-- HUELLA DIGITAL -->
+                <section class="card">
+                    <div class="card-header">
+                        <h2>Huella Digital</h2>
+                    </div>
+
+                    <div class="form-grid-3">
+                        <input type="text" placeholder="Facebook" />
+
+                        <input type="text" placeholder="Instagram" />
+
+                        <input type="text" placeholder="TikTok" />
+
+                        <input type="text" placeholder="LinkedIn" />
+
+                        <input type="text" placeholder="X (Twitter)" />
+
+                        <input type="text" placeholder="URL" />
+
+                        <input type="text" placeholder="WWW" />
+                    </div>
+                </section>
+
+                <!-- OPCIONES -->
+                <section class="card options-card">
+                    <div class="card-header">
+                        <h2>Opciones</h2>
+                    </div>
+
+                    <div class="buttons-container">
+                        <button class="btn btn-guardar">Guardar</button>
+
+                        <button class="btn btn-modificar">Modificar</button>
+
+                        <button class="btn btn-borrar">Borrar</button>
+
+                        <button class="btn btn-cancelar">Cancelar</button>
+
+                        <button class="btn btn-salir">Salir / Regresar</button>
+                    </div>
+                </section>
+
+                <!-- TABLA -->
+                <section class="card full-width">
+                    <div class="card-header">
+                        <h2>Registros Existentes</h2>
+
+                        <p>Consulta y administración de registros</p>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>CURP</th>
+                                    <th>Fecha</th>
+                                    <th>Email</th>
+                                    <th>Dirección</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>11</td>
+                                    <td>Ejemplo Usuario</td>
+                                    <td>XXXX000000XXXXXX</td>
+                                    <td>12/12/1975</td>
+                                    <td>correo@email.com</td>
+                                    <td>Dirección completa</td>
+                                    <td class="actions-cell">✏️ ℹ️</td>
+                                </tr>
+
+                                <tr class="selected-row">
+                                    <td>31</td>
+                                    <td>Galilea Castillo Arcos</td>
+                                    <td>UNOU751212MTCLRD01</td>
+                                    <td>12/12/1975</td>
+                                    <td>gali_ca@gmail.com</td>
+                                    <td>Teopisca, Chiapas</td>
+                                    <td class="actions-cell">✏️ ℹ️</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </section>
         </main>
 
@@ -173,19 +239,5 @@
         <script>
             verificarSesion();
         </script>
-        <!-- <script src="../js/cNombreJS.js"></script>-->
-        <!-- <script src="../js/cApePaterJS.js"></script>-->
-        <!-- <script src="../js/cApeMaterJS.js"></script>-->
-        <!--<script src="../js/cTpPersonJS.js"></script>-->
-        <!--<script src="../js/cGeneroJS.js"></script>-->
-        <!--<script src="../js/cPuestoJS.js"></script>-->
-        <!--<script src="../js/cNacionalidadJS.js"></script>-->
-        <!--<script src="../js/cGdoAcadJS.js"></script>-->
-        <!--<script src="../js/cColoniaJS.js"></script>-->
-        <!--<script src="../js/cCalleJS.js"></script>-->
-        <!--<script src="../js/cMunicipioJS.js"></script>-->
-        <!--<script src="../js/cEstadoJS.js"></script>-->
-        <!--<script src="../js/cPaisJS.js"></script>-->
-        <!--<script src="../js/curpValidacionJS.js" defer></script>-->
     </body>
 </html>
