@@ -188,49 +188,43 @@ select:focus {
 /* PASSWORD */
 .input-container {
     position: relative;
-
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .input-container input {
     width: 100%;
-
-    padding: 15px;
-    padding-right: 50px;
-
-    border-radius: 14px;
-
-    border: 1px solid #2f3338;
-
-    background: #1f242c;
-
-    color: white;
-
-    outline: none;
-
-    transition: 0.3s ease;
+    height: 44px;
+    padding: 0 48px 0 15px;
 }
 
-.input-container input:focus {
-    border-color: #ff7a00;
-
-    box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.15);
-}
-
-/* OJO PASSWORD */
 .togglePassword {
     position: absolute;
+    right: 14px;
+    top: 0;
+    bottom: 0;
 
-    right: 16px;
-    top: 50%;
+    width: 28px;
+    height: 100%;
 
-    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    cursor: pointer;
+    border: none;
+    background: transparent;
+
+    font-size: 15px;
+    line-height: 1;
 
     color: #9ca3af;
+    cursor: pointer;
 
-    transition: 0.2s ease;
+    padding: 0;
+    margin: 0;
+
+    z-index: 10;
 }
 
 .togglePassword:hover {
@@ -341,6 +335,7 @@ button:disabled,
     transform: none !important;
     filter: grayscale(70%);
 }
+
 /* INFO CARD */
 .info-card {
     display: flex;
@@ -452,13 +447,134 @@ button:disabled,
     font-size: 0.92rem;
 }
 
-/* HOVER */
 #tblUsuarios tbody tr {
     transition: 0.2s ease;
 }
 
 #tblUsuarios tbody tr:hover {
     background: #1f242c;
+}
+
+.fila-usuario {
+    cursor: pointer;
+}
+
+.fila-seleccionada {
+    background: #243041 !important;
+}
+
+/* ALERTAS */
+.error-msg {
+    display: block;
+
+    min-height: 18px;
+
+    margin-top: 6px;
+
+    color: #ff6b6b;
+
+    font-size: 0.82rem;
+
+    opacity: 0;
+
+    transition: 0.3s ease;
+}
+
+.error-msg.show {
+    opacity: 1;
+}
+
+.input-error {
+    border: 1px solid #ff4d4d !important;
+}
+
+.alerta {
+    position: fixed;
+
+    top: 25px;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-20px);
+
+    padding: 14px 20px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s ease;
+
+    z-index: 9999;
+}
+
+.alerta.show {
+    opacity: 1;
+
+    transform: translateX(-50%) translateY(0);
+
+    pointer-events: auto;
+}
+
+.alerta.error {
+    background: #ff4747;
+    color: white;
+}
+
+.alerta.success {
+    background: #16a34a;
+    color: white;
+}
+
+.alerta button {
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+/* SHAKE */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-5px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.3s ease;
 }
 
 /* RESPONSIVE */
@@ -503,99 +619,4 @@ button:disabled,
     .botones button {
         width: 100%;
     }
-}
-.fila-usuario {
-    cursor: pointer;
-}
-
-.fila-usuario:hover {
-    background: #f1f1f1;
-}
-
-.fila-seleccionada {
-    background: #d7e8ff !important;
-}
-.error-msg {
-    display: block;
-    min-height: 18px;
-    margin-top: 6px;
-    color: #ff6b6b;
-    font-size: 0.82rem;
-    opacity: 0;
-    transition: 0.3s ease;
-}
-
-.error-msg.show {
-    opacity: 1;
-}
-
-.input-error {
-    border: 1px solid #ff4d4d !important;
-}
-
-.alerta {
-    position: fixed;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-20px);
-    padding: 14px 20px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s ease;
-    z-index: 9999;
-}
-
-.alerta.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
-}
-
-.alerta.error {
-    background: #ff4747;
-    color: white;
-}
-
-.alerta.success {
-    background: #16a34a;
-    color: white;
-}
-
-.alerta button {
-    border: none;
-    padding: 8px 12px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-    20% {
-        transform: translateX(-5px);
-    }
-    40% {
-        transform: translateX(5px);
-    }
-    60% {
-        transform: translateX(-5px);
-    }
-    80% {
-        transform: translateX(5px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-.shake {
-    animation: shake 0.3s ease;
 }
