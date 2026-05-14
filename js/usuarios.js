@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // =========================
-  // ELEMENTOS
-  // =========================
   const login = document.getElementById("login");
   const password = document.getElementById("password");
   const fecini = document.getElementById("fecini");
@@ -12,34 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
   let usuarioSeleccionado = null;
   let alertaActiva = false;
 
-  // =========================
-  // BOTONES
-  // =========================
   const btnNuevo = document.getElementById("btnNuevo");
   const btnGuardar = document.getElementById("btnGuardar");
   const btnModificar = document.getElementById("btnModificar");
   const btnEliminar = document.getElementById("btnEliminar");
   const btnCancelar = document.getElementById("btnCancelar");
 
-  // =========================
-  // REGEX
-  // =========================
   const regexLogin = /^[A-Z][a-z]{2}\d{2}[A-Za-z]{3}\d{2}[+\.\*$@;%]$/;
 
   const regexPassword =
     /^[A-Z][a-z]{2}\d{2}[A-Za-z]{3}\d{2}[A-Za-z]{3}\d{2}[+\.\*$@;%]$/;
 
-  // =========================
-  // INICIO
-  // =========================
   cargarUsuarios();
   cargarPersonas();
 
   btnGuardar.disabled = true;
 
-  // =========================
-  // FECHAS AUTOMATICAS
-  // =========================
   const hoy = new Date();
   const fechaHoy = hoy.toISOString().split("T")[0];
 
@@ -71,9 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fecfin.value = nuevaFecha.toISOString().split("T")[0];
   });
 
-  // =========================
-  // EVENTOS
-  // =========================
   btnGuardar.addEventListener("click", guardarUsuario);
   btnModificar.addEventListener("click", modificarUsuario);
   btnEliminar.addEventListener("click", eliminarUsuario);
@@ -122,9 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btnEliminar.classList.remove("btn-disabled");
   });
 
-  // =========================
-  // MOSTRAR / OCULTAR PASSWORD
-  // =========================
   document.querySelectorAll(".togglePassword").forEach((toggle) => {
     const input = toggle.previousElementSibling;
 
@@ -133,9 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // =========================
-  // ALERTA GENERAL
-  // =========================
   function mostrarAlerta(mensaje, tipo = "error") {
     if (alertaActiva) return;
 
@@ -147,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!alerta || !texto || !btn) {
       console.warn("Falta alertaTop, mensajeAlerta o btnAceptar en el HTML");
+      alertaActiva = false;
       return;
     }
 
@@ -168,10 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // =========================
-  // ERROR DE INPUT
-  // =========================
-  function mostrarError(input, idError, mensaje) {
+  function mostrarErrorCampo(input, idError, mensaje) {
     const el = document.getElementById(idError);
 
     if (el) {
@@ -182,24 +156,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (input) {
       input.classList.add("input-error", "shake");
     }
-
-    mostrarAlerta(mensaje, "error");
-
-    setTimeout(() => {
-      if (el) {
-        el.textContent = "";
-        el.classList.remove("show");
-      }
-
-      if (input) {
-        input.classList.remove("input-error", "shake");
-      }
-    }, 3000);
   }
 
-  // =========================
-  // LIMPIAR ERRORES
-  // =========================
+  function mostrarError(input, idError, mensaje) {
+    mostrarErrorCampo(input, idError, mensaje);
+    mostrarAlerta(mensaje, "error");
+  }
+
   function limpiarErrores() {
     [
       "errorPersona",
@@ -223,49 +186,78 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =========================
-  // VALIDAR FORMULARIO
-  // =========================
   function validarFormulario() {
     limpiarErrores();
 
+    let hayError = false;
+
     if (cvperson.value === "") {
-      mostrarError(cvperson, "errorPersona", "Seleccione una persona");
-      return false;
+      mostrarErrorCampo(
+        cvperson,
+        "errorPersona",
+        "Dato requerido: seleccione una persona.",
+      );
+
+      hayError = true;
     }
 
     if (!regexLogin.test(login.value.trim())) {
-      mostrarError(login, "errorLogin", "Login inválido");
-      return false;
+      mostrarErrorCampo(
+        login,
+        "errorLogin",
+        "Formato inválido: debe cumplir el formato requerido.",
+      );
+
+      hayError = true;
     }
 
     if (!regexPassword.test(password.value.trim())) {
-      mostrarError(password, "errorPassword", "Password inválido");
-      return false;
+      mostrarErrorCampo(
+        password,
+        "errorPassword",
+        "Formato inválido: exactamente 16 caracteres.",
+      );
+
+      hayError = true;
     }
 
     const hoyValidacion = new Date();
     hoyValidacion.setHours(0, 0, 0, 0);
 
-    const fechaIni = new Date(fecini.value);
-    const fechaFin = new Date(fecfin.value);
-
+    const fechaIni = new Date(fecini.value + "T00:00:00");
+    const fechaFin = new Date(fecfin.value + "T00:00:00");
     if (fechaIni < hoyValidacion) {
-      mostrarError(fecini, "errorFecIni", "Fecha inicio inválida");
-      return false;
+      mostrarErrorCampo(
+        fecini,
+        "errorFecIni",
+        "La fecha de inicio no puede ser menor a la fecha actual.",
+      );
+
+      hayError = true;
     }
 
     if (fechaFin < fechaIni) {
-      mostrarError(fecfin, "errorFecFin", "Fecha fin inválida");
+      mostrarErrorCampo(
+        fecfin,
+        "errorFecFin",
+        "La fecha de término no puede ser menor a la fecha de inicio.",
+      );
+
+      hayError = true;
+    }
+
+    if (hayError) {
+      mostrarAlerta(
+        "Error al guardar usuario: verifique los campos marcados.",
+        "error",
+      );
+
       return false;
     }
 
     return true;
   }
 
-  // =========================
-  // GUARDAR
-  // =========================
   async function guardarUsuario() {
     if (!validarFormulario()) return;
 
@@ -298,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      mostrarAlerta("Usuario guardado correctamente", "success");
+      mostrarAlerta("Usuario guardado correctamente.", "success");
 
       limpiarFormulario();
 
@@ -319,17 +311,14 @@ document.addEventListener("DOMContentLoaded", () => {
       cargarUsuarios();
     } catch (error) {
       console.error(error);
-      mostrarAlerta("Error al conectar con el servidor", "error");
+      mostrarAlerta("Error al conectar con el servidor.", "error");
       btnGuardar.disabled = false;
     }
   }
 
-  // =========================
-  // MODIFICAR
-  // =========================
   async function modificarUsuario() {
     if (!usuarioSeleccionado) {
-      mostrarAlerta("Seleccione un usuario de la tabla", "error");
+      mostrarAlerta("Seleccione un usuario de la tabla.", "error");
       return;
     }
 
@@ -362,7 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      mostrarAlerta("Usuario modificado correctamente", "success");
+      mostrarAlerta("Usuario modificado correctamente.", "success");
 
       limpiarFormulario();
 
@@ -382,16 +371,13 @@ document.addEventListener("DOMContentLoaded", () => {
       cargarUsuarios();
     } catch (error) {
       console.error(error);
-      mostrarAlerta("Error al conectar con el servidor", "error");
+      mostrarAlerta("Error al conectar con el servidor.", "error");
     }
   }
 
-  // =========================
-  // ELIMINAR
-  // =========================
   async function eliminarUsuario() {
     if (!usuarioSeleccionado) {
-      mostrarAlerta("Seleccione un usuario de la tabla", "error");
+      mostrarAlerta("Seleccione un usuario de la tabla.", "error");
       return;
     }
 
@@ -420,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      mostrarAlerta("Usuario eliminado correctamente", "success");
+      mostrarAlerta("Usuario eliminado correctamente.", "success");
 
       limpiarFormulario();
 
@@ -440,13 +426,10 @@ document.addEventListener("DOMContentLoaded", () => {
       cargarUsuarios();
     } catch (error) {
       console.error(error);
-      mostrarAlerta("Error al conectar con el servidor", "error");
+      mostrarAlerta("Error al conectar con el servidor.", "error");
     }
   }
 
-  // =========================
-  // CARGAR USUARIOS
-  // =========================
   async function cargarUsuarios() {
     try {
       const res = await fetch("api/usuarios_api.php?accion=listar");
@@ -487,13 +470,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } catch (error) {
       console.error(error);
-      mostrarAlerta("Error al cargar usuarios", "error");
+      mostrarAlerta("Error al cargar usuarios.", "error");
     }
   }
 
-  // =========================
-  // SELECCIONAR FILA
-  // =========================
   function seleccionarFila(fila) {
     limpiarErrores();
 
@@ -529,9 +509,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btnEliminar.classList.remove("btn-disabled");
   }
 
-  // =========================
-  // CARGAR PERSONAS
-  // =========================
   async function cargarPersonas() {
     try {
       const res = await fetch("api/usuarios_api.php?accion=personas");
@@ -551,13 +528,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } catch (error) {
       console.error(error);
-      mostrarAlerta("Error al cargar nombres", "error");
+      mostrarAlerta("Error al cargar nombres.", "error");
     }
   }
 
-  // =========================
-  // LIMPIAR FORMULARIO
-  // =========================
   function limpiarFormulario() {
     limpiarErrores();
 
